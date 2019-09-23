@@ -1,7 +1,2 @@
-# LuaStuff
-
-Anything Lua related I work on.
-
-https://repl.it/@TaylorRatliff
-
+# Lua Algorithms
 https://repl.it/@TaylorRatliff/Sorts
