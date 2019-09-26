@@ -1,27 +1,63 @@
--- function is currently incomplete. Scheduled to be completed 9/25
-
 function mergeSort(a)
+
   if (table.getn(a) > 1) then
     mid = math.floor(table.getn(a) / 2)
-    left = {}
-    right = {}
+    local left = {}
+    local right = {}
 
-    for i = 1, math.floor(table.getn(a) / 2) do
-      left[i] = b[i]
-      print(left[i], i)
+    for i = 1, mid do
+      left[i] = a[i]
     end
 
-    print("\n")
+    for i = 1, table.getn(a) - mid do
+      right[i] = a[mid + i]
+    end
 
-    for i = 1, math.ceil(table.getn(a) / 2) do
-      right[i] = b[math.floor(table.getn(a) / 2) + i]
-      print(right[i], i)
+    left = mergeSort(left)
+    right = mergeSort(right)
+
+    i = 1; j = 1; k = 1
+
+    while i <= table.getn(left) and j <= table.getn(right) do
+      if left[i] < right[j] then
+        a[k] = left[i]
+        i = i + 1
+      else
+        a[k] = right[j]
+        j = j + 1
+      end
+      k = k + 1
+    end
+
+    while i <= table.getn(left) do
+      a[k] = left[i]
+      i = i + 1
+      k = k + 1
+    end
+
+    while j <= table.getn(right) do
+      a[k] = right[j]
+      j = j + 1
+      k = k + 1
     end
   end
 
   return a
 end
 
-b = {1, 2, 3, 4, 5, 6, 7, 8}
+-- Driver Code
+a = {4, 2, 6, 1, 3, 5, 8, 7}
 
-b = mergeSort(b)
+for i = 1, table.getn(a) do
+  io.write(a[i], "\t")
+end
+
+a = mergeSort(a)
+
+print("\n")
+
+for i = 1, table.getn(a) do
+  io.write(a[i], "\t")
+end
+
+print("\n")
