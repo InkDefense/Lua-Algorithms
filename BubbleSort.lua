@@ -41,11 +41,11 @@ b = BubbleSortAscending(b)
 c = BubbleSortDescending(c)
 
 for i = 1, table.getn(b) do
-  print(b[i])
+  io.write(b[i], "\t")
 end
 
 print("\n")
 
 for i = 1, table.getn(c) do
-  print(c[i])
+  io.write(c[i], "\t")
 end
